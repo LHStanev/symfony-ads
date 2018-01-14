@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if ads is not empty %}
+        <h1>{{ categoryName }}</h1>
+        <div class="row">
+            {% for ad in ads %}
+                <div class="ad">
+                    <h3> {{ ad.title }}</h3>
+                    <div><strong>Price:</strong>{{ ad.price }}</div>
+                    <div><strong>Date created:</strong>{{ ad.dateCreated|date('d-m-Y') }}</div>
+                    <div><strong>Date expires:</strong>{{ ad.dateExpires|date('d-m-Y') }}</div>
+                    <div><strong>Number of views:</strong>{{ ad.views }}</div>
+                    <a href="{{ path('single_ad', {'id':ad.id}) }}" class="btn btn-primary btn-right">Read more</a>
+                </div>
+            {% endfor %}
+        </div>
+        {% else %}
+            <h2>There are no ads in this category at the moment.</h2>
+        {% endif %}
+{% endblock %}

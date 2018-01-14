@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>Edit ad</h3>
+    {{ form_start(form) }}
+    <div class="form-group">
+        {{ form_label(form.title, 'Title: ') }}
+        {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.body, 'Description: ') }}
+        {{ form_widget(form.body, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.image, 'Image: ') }}
+        {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.price, 'Price: ') }}
+        {{ form_widget(form.price, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.dateCreated, 'Date created: ') }}
+        {{ form_widget(form.dateCreated, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.dateExpires, 'Date expires: ') }}
+        {{ form_widget(form.dateExpires, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.category, 'Category: ') }}
+        {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.location, 'Location: ') }}
+        {{ form_widget(form.location, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.isActive, 'IsActive: ') }}
+        {{ form_widget(form.isActive) }}
+    </div>
+
+    {{ form_widget(form.Submit, {'attr': {'class': 'btn btn-primary'}}) }}
+
+
+    {{ form_end(form) }}
+{% endblock %}

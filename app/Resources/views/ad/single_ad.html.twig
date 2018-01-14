@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1><strong>Title:</strong> {{ ad.title }}</h1>
+    <div><strong>Description:</strong>{{ ad.body }}</div>
+    <div><img src="{{ asset('uploads/images/' ~ ad.image) }}" alt="image" class="img-thumbnail"></div>
+    <div><strong>Price:</strong>{{ ad.price }}</div>
+    <div><strong>Category:</strong>{{ ad.category.name }}</div>
+    <div><strong>Location:</strong>{{ ad.location.name }}</div>
+    <div><strong>Date created:</strong>{{ ad.dateCreated|date('d-m-Y') }}</div>
+    <div><strong>Date expires:</strong>{{ ad.dateExpires|date('d-m-Y') }}</div>
+    <div><strong>Number of views:</strong>{{ ad.views }}</div>
+{% endblock %}

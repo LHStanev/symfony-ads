@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+
+        <div class="col-sm-3">
+            <h3>Pages</h3>
+            <table class="table table-bordered">
+                <thead>
+                <th>id</th>
+                <th>title</th>
+                <th>Edit</th>
+                </thead>
+                <tbody>
+                {% for page in pages %}
+                    <tr>
+                        <td>{{ page.id }}</td>
+                        <td><a href="{{ path('single_page', {'slug' : page.slug}) }}">{{ page.title }}</a></td>
+                        <td><a href="{{ path('edit_page', {'id':page.id}) }}">Edit</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <a href="{{ path('create_page') }}" class="btn btn-primary">Create page</a>
+        </div>
+
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-3">
+            <h3>Categories</h3>
+            <table class="table table-bordered">
+                <thead>
+                <th>id</th>
+                <th>name</th>
+                <th>Edit</th>
+                </thead>
+                <tbody>
+                {% for category in categories %}
+                    <tr>
+                        <td>{{ category.id }}</td>
+                        <td><a href="{{ path('ads_by_category', {'name': category.slug}) }}">{{ category.name }}</a></td>
+                        <td><a href="{{ path('edit_category', {'id': category.id}) }}">Edit</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <a href="{{ path('create_category') }}" class="btn btn-primary">Create category</a>
+        </div>
+
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-3">
+
+            <h3>Locations</h3>
+            <table class="table table-bordered">
+                <thead>
+                <th>id</th>
+                <th>name</th>
+                <th>Edit</th>
+                </thead>
+                <tbody>
+                {% for location in locations %}
+                    <tr>
+                        <td>{{ location.id }}</td>
+                        <td>{{ location.name }}</td>
+                        <td><a href="{{ path('edit_location', {'id': location.id}) }}">Edit</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <a href="{{ path('create_location') }}" class="btn btn-primary">Create location</a>
+        </div>
+    </div>
+    <div class="row">
+
+            <h3>Latest ads</h3>
+            <table class="table table-bordered">
+                <thead>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Date Created</th>
+                <th>Date Expires</th>
+                <th>Edit</th>
+                </thead>
+                <tbody>
+                {% for ad in ads %}
+                    <tr>
+                        <td><a href="{{ path('single_ad', {'id':ad.id}) }}">{{ ad.title }}</a></td>
+                        <td>{{ ad.body }}</td>
+                        <td>{{ ad.price }}</td>
+                        <td>{{ ad.dateCreated|date('d-m-Y') }}</td>
+                        <td>{{ ad.dateExpires|date('d-m-Y') }}</td>
+                        <td><a href="{{ path('edit_ad', {'id': ad.id}) }}">Edit</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <a href="{{ path('create_ad') }}" class="btn btn-primary">Create ad</a>
+
+    </div>
+{% endblock %}
+
+

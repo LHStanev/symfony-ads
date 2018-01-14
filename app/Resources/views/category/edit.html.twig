@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+    <div class="form-group">
+        {{ form_label(form.name, 'Name: ') }}
+        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.slug, 'Slug: ') }}
+        {{ form_widget(form.slug, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    {{ form_widget(form.Submit, {'attr': {'class': 'btn btn-primary'}}) }}
+
+
+    {{ form_end(form) }}
+{% endblock %}
